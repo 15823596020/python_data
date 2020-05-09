@@ -31,15 +31,15 @@ class ExerciseExcel:
             height = sheet_read.cell(row=i + 2, column=2).value  # 取出身高
             weight = sheet_read.cell(row=i + 2, column=3).value  # 取出体重
 
-            if int(weight) == (int(height) - 70) * 0.6:  # 如果体重=公式计算出的体重，则为健康体
+            if weight == (height - 70) * 0.6:  # 如果体重=公式计算出的体重，则为健康体
                 print(f"{name}:健康")
                 sheet_read.cell(row=i + 2, column=4, value="健康")
-            elif int(weight) < (int(height) - 70) * 0.6:  # 如果体重<公式计算出的体重，则为偏瘦
-                print(f"{name}:偏瘦,健康体重为{(int(height) - 70) * 0.6}")
-                sheet_read.cell(row=i + 2, column=4, value=f"偏瘦,健康体重为{(int(height) - 70) * 0.6}")
+            elif weight < (height - 70) * 0.6:  # 如果体重<公式计算出的体重，则为偏瘦
+                print(f"{name}:偏瘦,健康体重为{(height - 70) * 0.6}")
+                sheet_read.cell(row=i + 2, column=4, value=f"偏瘦,健康体重为{(height - 70) * 0.6}")
             else:  # 如果体>公式计算出的体重，则为偏胖
-                print(f"{name}:偏胖,健康体重为{(int(height) - 70) * 0.6}")
-                sheet_read.cell(row=i + 2, column=4, value=f"偏胖,健康体重为{(int(height) - 70) * 0.6}")
+                print(f"{name}:偏胖,健康体重为{(height - 70) * 0.6}")
+                sheet_read.cell(row=i + 2, column=4, value=f"偏胖,健康体重为{(height - 70) * 0.6}")
 
         rt.save("homework_excel.xlsx")  # 保存excel文件
 
@@ -47,9 +47,9 @@ if __name__ == '__main__':
     #需要传入的表头列表
     excel_title = ["姓名", "身高", "体重"]
     #需要传入的数据列表
-    excel_data = [{"姓名": "张三", "身高": "170", "体重": "60"}, {"姓名": "李四", "身高": "180", "体重": "70"},
-                  {"姓名": "王五", "身高": "160", "体重": "50"}, {"姓名": "史蒂芬", "身高": "175", "体重": "55"},
-                  {"姓名": "思琪", "身高": "150", "体重": "40"}, {"姓名": "小乔", "身高": "165", "体重": "45"}]
+    excel_data = [{"姓名": "张三", "身高": 170, "体重": 60}, {"姓名": "李四", "身高": 180, "体重": 70},
+                  {"姓名": "王五", "身高": 160, "体重": 50}, {"姓名": "史蒂芬", "身高": 175, "体重": 55},
+                  {"姓名": "思琪", "身高": 150, "体重": 40}, {"姓名": "小乔", "身高": 165, "体重": 45}]
 
     exerciseexcel = ExerciseExcel(excel_title, excel_data)  # 实例化，并传入表头信息列表，数据信息列表
     exerciseexcel.create_excel()    # 实例调用create_excel方法
