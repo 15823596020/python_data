@@ -12,7 +12,7 @@ class ExerciseExcel:
         sheet = wt.active  # 获取当前页签
         sheet.title = "体检人员信息"  # 设置当前页签名
 
-        # 定义表格的表头
+        # 向表中写入表头
         for i in range(len(excel_title)):
             sheet.cell(row=1, column=i + 1).value = excel_title[i]  # 向第1行中的对应列中写入表头信息
             sheet.cell(row=1, column=i + 1).alignment = Alignment(horizontal='center', vertical='center')  # 设置内容居中显示
