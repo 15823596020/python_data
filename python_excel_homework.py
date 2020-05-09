@@ -47,7 +47,7 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
 
 
 list_data = [("张三", "170", "60"), ("李四", "180", "70"), ("王五", "160", "50"), ("史蒂芬", "175", "55"),
-             ("思琪", "150", "40"), ("小乔", "165", "45")]  # 列表包裹这的元素用于存放某人的相关信息
+             ("思琪", "150", "40"), ("小乔", "165", "45")]  # 列表包裹着的元素用于存放某人的相关信息
 
 openpyxl_excel = OpenpyxlExcel()  # 实例化OpenpyxlExcel类
 openpyxl_excel.create_excel(list_data)  # 实例调用create_excel方法，并传入需要写入的数据列表
