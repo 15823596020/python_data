@@ -21,7 +21,7 @@ class ExerciseExcel:
             sheet.cell(row=i + 2, column=1).value = excel_data[i]["姓名"]  # 第1列写入某人的姓名
             sheet.cell(row=i + 2, column=2).value = excel_data[i]["身高"]  # 第2列写入某人的身高
             sheet.cell(row=i + 2, column=3).value = excel_data[i]["体重"]  # 第3列写入某人的体重
-            # # 设置内容居中显示
+            # 设置内容居中显示
             for j in range(len(excel_data[i])):  # 循环列，某行某列的内容居中显示
                 sheet.cell(row=i + 2, column=j + 1).alignment = Alignment(horizontal='center', vertical='center')
 
