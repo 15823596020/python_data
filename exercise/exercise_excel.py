@@ -35,6 +35,7 @@ class ExerciseExcel:
         sheet_read.column_dimensions['D'].width = 20  # 调整D这一列的列宽
         # sheet_read.row_dimensions[1].height = 40  # 调整第1行的行高
         sheet_read['D1'].alignment = Alignment(horizontal='center', vertical='center')  # 设置内容居中显示
+
         for i in range(len(excel_data)):  # 读取某人的相关信息
             name = sheet_read.cell(row=i + 2, column=1).value  # 取出姓名
             height = sheet_read.cell(row=i + 2, column=2).value  # 取出身高
