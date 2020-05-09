@@ -14,16 +14,17 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
         wt = Workbook()  # 实例化Workbook
         focus = wt.active  # 获取当前活跃的页签
         focus.title = "人员信息"  # 页签取名人员信息
-        focus["A1"] = "姓名"  # 单元格A1中写入姓名
-        focus["B1"] = "身高"  # 单元格B1中写入身高
-        focus["C1"] = "体重"  # 单元格C1中写入体重
+        # 定义表格的表头
+        excel_title = ["姓名", "身高", "体重"]  # excel_title列表存放表格的表头
+        for i in range(len(excel_title)):
+            focus.cell(row=1, column=i + 1).value = excel_title[i]  # 向第1行中的对应列中写入表头信息
 
         # for循环，将list_data中的数据写入到excel文件中
         for i in range(len(list_data)):  # 循环写的人数
             for j in range(len(list_data[i])):  # 循环写每个人的相关信息
                 focus.cell(row=i + 2, column=j + 1).value = list_data[i][j]  # 从第2行开始，第1列写入某人的姓名，第2列写入某人的身高，第3列写入某人的体重
 
-        wt.save("./data/homework_excel.xlsx")  # 保存excel文件
+        wt.save("homework_excel.xlsx")  # 保存excel文件
 
     def health_mark(self):  # 定义一个方法来衡量某人的体重是否是健康体
         rt = load_workbook(filename="homework_excel.xlsx")  # 实例化load_workbook
@@ -43,7 +44,7 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
                 print(f"{name}:偏胖,健康体重为{(int(height) - 70) * 0.6}")
                 sheet.cell(row=i + 2, column=4, value=f"偏胖,健康体重为{(int(height) - 70) * 0.6}")
 
-        rt.save("./data/homework_excel.xlsx")  # 保存excel文件
+        rt.save("homework_excel.xlsx")  # 保存excel文件
 
 
 list_data = [("张三", "170", "60"), ("李四", "180", "70"), ("王五", "160", "50"), ("史蒂芬", "175", "55"),
