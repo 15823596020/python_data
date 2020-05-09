@@ -25,7 +25,7 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
 
         wt.save("homework_excel.xlsx")  # 保存excel文件
 
-    def health_mark(self, list_data):  # 定义一个方法来衡量某人的体重是否是健康体
+    def health_mark(self):  # 定义一个方法来衡量某人的体重是否是健康体
         rt = load_workbook(filename="homework_excel.xlsx")  # 实例化load_workbook
         sheet = rt["人员信息"]
         sheet['D1'] = "备注"
@@ -50,6 +50,6 @@ list_data = [("张三", "170", "60"), ("李四", "180", "70"), ("王五", "160",
              ("思琪", "150", "40"), ("小乔", "165", "45")]  # 列表包裹着的元组用于存放某人的相关信息
 
 openpyxl_excel = OpenpyxlExcel()  # 实例化OpenpyxlExcel类
-openpyxl_excel.create_excel(list_data)  # 实例调用create_excel方法，并传入需要写入的数据列表
-openpyxl_excel.health_mark(list_data)  # 实例调用health_mark方法
+# openpyxl_excel.create_excel(list_data)  # 实例调用create_excel方法，并传入需要写入的数据列表
+openpyxl_excel.health_mark()  # 实例调用health_mark方法
 
