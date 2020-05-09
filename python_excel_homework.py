@@ -27,8 +27,8 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
 
     def health_mark(self):  # 定义一个方法来衡量某人的体重是否是健康体
         rt = load_workbook(filename="homework_excel.xlsx")  # 实例化load_workbook
-        sheet = rt["人员信息"]
-        sheet['D1'] = "备注"
+        sheet = rt["人员信息"]  # 获取需要操作的页签
+        sheet['D1'] = "备注"  # 单元格D1中写入备注
         for i in range(len(list_data)):  # 需要读取的某个人的信息
             name = sheet.cell(row=i + 2, column=1).value  # 取出姓名
             height = sheet.cell(row=i + 2, column=2).value  # 取出身高
