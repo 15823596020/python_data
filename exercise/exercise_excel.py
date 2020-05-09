@@ -1,6 +1,7 @@
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment
 
+
 class ExerciseExcel:
     def __init__(self, excel_title, excel_data):  # 属性有表头信息，数据信息（通过传入的参数得到）
         self.excel_title = excel_title
@@ -20,7 +21,7 @@ class ExerciseExcel:
             sheet.cell(row=i + 2, column=1).value = excel_data[i]["姓名"]  # 第1列写入某人的姓名
             sheet.cell(row=i + 2, column=2).value = excel_data[i]["身高"]  # 第2列写入某人的身高
             sheet.cell(row=i + 2, column=3).value = excel_data[i]["体重"]  # 第3列写入某人的体重
-            # 设置内容居中显示
+            # # 设置内容居中显示
             for j in range(len(excel_data[i])):  # 循环列，某行某列的内容居中显示
                 sheet.cell(row=i + 2, column=j + 1).alignment = Alignment(horizontal='center', vertical='center')
 
@@ -53,6 +54,7 @@ class ExerciseExcel:
                     vertical='center')  # 写入相关信息，并设置内容垂直居中显示
 
         rt.save("homework_excel.xlsx")  # 保存excel文件
+
 
 if __name__ == '__main__':
     # 需要传入的表头列表
