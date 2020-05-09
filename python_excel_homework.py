@@ -23,7 +23,7 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
             for j in range(len(list_data[i])):  # 循环写每个人的相关信息
                 focus.cell(row=i + 2, column=j + 1).value = list_data[i][j]  # 从第2行开始，第1列写入某人的姓名，第2列写入某人的身高，第3列写入某人的体重
 
-        wt.save("homework_excel.xlsx")  # 保存excel文件
+        wt.save("./data/homework_excel.xlsx")  # 保存excel文件
 
     def health_mark(self):  # 定义一个方法来衡量某人的体重是否是健康体
         rt = load_workbook(filename="homework_excel.xlsx")  # 实例化load_workbook
@@ -43,13 +43,13 @@ class OpenpyxlExcel:  # 定义一个OpenpyxlExcel类
                 print(f"{name}:偏胖,健康体重为{(int(height) - 70) * 0.6}")
                 sheet.cell(row=i + 2, column=4, value=f"偏胖,健康体重为{(int(height) - 70) * 0.6}")
 
-        rt.save("homework_excel.xlsx")  # 保存excel文件
+        rt.save("./data/homework_excel.xlsx")  # 保存excel文件
 
 
 list_data = [("张三", "170", "60"), ("李四", "180", "70"), ("王五", "160", "50"), ("史蒂芬", "175", "55"),
              ("思琪", "150", "40"), ("小乔", "165", "45")]  # 列表包裹着的元组用于存放某人的相关信息
 
 openpyxl_excel = OpenpyxlExcel()  # 实例化OpenpyxlExcel类
-# openpyxl_excel.create_excel(list_data)  # 实例调用create_excel方法，并传入需要写入的数据列表
+openpyxl_excel.create_excel(list_data)  # 实例调用create_excel方法，并传入需要写入的数据列表
 openpyxl_excel.health_mark()  # 实例调用health_mark方法
 
